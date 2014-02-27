@@ -35,30 +35,9 @@ public final class R {
         public static final int waiting=0x7f02000b;
     }
     public static final class id {
-        public static final int actionList=0x7f080016;
-        public static final int action_settings=0x7f080017;
-        public static final int aristotleEating=0x7f08000f;
-        public static final int aristotleThinking=0x7f08000b;
-        public static final int aristotleWaiting=0x7f08000e;
-        public static final int chrisEating=0x7f080015;
-        public static final int chrisThinking=0x7f080009;
-        public static final int chrisWaiting=0x7f080014;
-        public static final int confuciusEating=0x7f080013;
-        public static final int confuciusThinking=0x7f08000a;
-        public static final int confuciusWaiting=0x7f080012;
-        public static final int imageView1=0x7f080000;
-        public static final int imageView2=0x7f080001;
-        public static final int imageView3=0x7f080002;
-        public static final int imageView4=0x7f080005;
-        public static final int imageView5=0x7f080004;
-        public static final int imageView6=0x7f080003;
-        public static final int imageView7=0x7f080006;
-        public static final int maxEating=0x7f080011;
-        public static final int maxThinking=0x7f080008;
-        public static final int maxWaiting=0x7f080010;
-        public static final int platoEating=0x7f08000d;
-        public static final int platoThinking=0x7f080007;
-        public static final int platoWaiting=0x7f08000c;
+        public static final int action_settings=0x7f080002;
+        public static final int imageView1=0x7f080001;
+        public static final int imageView2=0x7f080000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

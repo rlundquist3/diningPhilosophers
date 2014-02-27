@@ -6,7 +6,7 @@ public class Philosopher {
 	
 	MainActivity parent;
 	int number, state, lastState;
-	static boolean available[];
+	static boolean available[] = new boolean[5];
 	int times[];
 	String[] states = new String[] {"Thinking", "Waiting", "Eating"};
 	String[] names = new String[] {"aristotle", "max", "confucius", "chris", "plato"};

@@ -11,207 +11,35 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp" >
+        android:layout_height="match_parent" >
 
-        <ImageView
+        <!--ImageView
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:src="@drawable/dining_philosophers_back" />
-
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dining_philosophers" /-->
+        
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/dining_philosophers_table" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="60dp"
-            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/aristotle" />
-
+            android:scaleType="fitCenter"
+            android:src="@drawable/dining_philosophers_back" />
+        
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="48dp"
-            android:layout_height="55dp"
-            android:layout_alignTop="@+id/imageView5"
-            android:layout_marginTop="14dp"
-            android:layout_toLeftOf="@+id/imageView3"
-            android:src="@drawable/latiolais" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="56dp"
-            android:layout_height="52dp"
-            android:layout_above="@+id/imageView5"
-            android:layout_marginBottom="24dp"
-            android:layout_marginLeft="14dp"
-            android:layout_toRightOf="@+id/imageView3"
-            android:src="@drawable/cherem" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="45dp"
-            android:layout_height="68dp"
-            android:layout_alignBottom="@+id/imageView4"
-            android:layout_alignRight="@+id/imageView6"
-            android:layout_marginRight="17dp"
-            android:src="@drawable/plato" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="60dp"
-            android:layout_height="85dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/imageView4"
-            android:layout_marginRight="24dp"
-            android:src="@drawable/confucius" />
-
-        <ImageView
-            android:id="@+id/platoThinking"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_above="@+id/imageView4"
-            android:layout_toLeftOf="@+id/imageView7"
-            android:visibility="invisible"
-            android:src="@drawable/thinking" />
-
-        <ImageView
-            android:id="@+id/maxThinking"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_alignBottom="@+id/imageView3"
-            android:layout_toRightOf="@+id/imageView4"
-            android:visibility="invisible"
-            android:src="@drawable/thinking" />
-
-        <ImageView
-            android:id="@+id/chrisThinking"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_alignTop="@+id/imageView6"
-            android:layout_toLeftOf="@+id/imageView6"
-            android:visibility="invisible"
-            android:src="@drawable/thinking" />
-
-        <ImageView
-            android:id="@+id/confuciusThinking"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_alignTop="@+id/imageView6"
-            android:layout_toLeftOf="@+id/maxThinking"
-            android:visibility="invisible"
-            android:src="@drawable/thinking" />
-
-        <ImageView
-            android:id="@+id/aristotleThinking"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_alignLeft="@+id/imageView5"
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:visibility="invisible"
-            android:src="@drawable/thinking" />
-
-        <ImageView
-            android:id="@+id/platoWaiting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignTop="@+id/platoThinking"
-            android:layout_toLeftOf="@+id/imageView7"
-            android:visibility="invisible"
-            android:src="@drawable/waiting" />
-
-        <ImageView
-            android:id="@+id/platoEating"
-            android:layout_width="28dp"
-            android:layout_height="27dp"
-            android:layout_alignBottom="@+id/platoThinking"
-            android:layout_alignLeft="@+id/platoWaiting"
-            android:visibility="invisible"
-            android:src="@drawable/eating" />
-
-        <ImageView
-            android:id="@+id/aristotleWaiting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignLeft="@+id/aristotleThinking"
-            android:visibility="invisible"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/waiting" />
-
-        <ImageView
-            android:id="@+id/aristotleEating"
-            android:layout_width="28dp"
-            android:layout_height="27dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/aristotleWaiting"
-            android:visibility="invisible"
-            android:src="@drawable/eating" />
-
-        <ImageView
-            android:id="@+id/maxWaiting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignRight="@+id/maxThinking"
-            android:layout_alignTop="@+id/maxThinking"
-            android:visibility="invisible"
-            android:src="@drawable/waiting" />
-
-        <ImageView
-            android:id="@+id/maxEating"
-            android:layout_width="28dp"
-            android:layout_height="27dp"
-            android:layout_alignTop="@+id/maxThinking"
-            android:layout_toRightOf="@+id/confuciusWaiting"
-            android:visibility="invisible"
-            android:src="@drawable/eating" />
-
-        <ImageView
-            android:id="@+id/confuciusWaiting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignTop="@+id/confuciusThinking"
-            android:layout_toLeftOf="@+id/maxThinking"
-            android:visibility="invisible"
-            android:src="@drawable/waiting" />
-
-        <ImageView
-            android:id="@+id/confuciusEating"
-            android:layout_width="28dp"
-            android:layout_height="27dp"
-            android:layout_alignLeft="@+id/confuciusWaiting"
-            android:layout_alignTop="@+id/chrisWaiting"
-            android:visibility="invisible"
-            android:src="@drawable/eating" />
-
-        <ImageView
-            android:id="@+id/chrisWaiting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignBottom="@+id/chrisThinking"
-            android:layout_alignLeft="@+id/chrisThinking"
-            android:visibility="invisible"
-            android:src="@drawable/waiting" />
-
-        <ImageView
-            android:id="@+id/chrisEating"
-            android:layout_width="28dp"
-            android:layout_height="27dp"
-            android:layout_alignBottom="@+id/chrisThinking"
-            android:layout_alignRight="@+id/chrisThinking"
-            android:visibility="invisible"
-            android:src="@drawable/eating" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/dining_philosophers" />
 
     </RelativeLayout>
-
-    <ListView
-        android:id="@+id/actionList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
 
 </LinearLayout>

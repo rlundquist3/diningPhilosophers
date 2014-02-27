@@ -30,8 +30,12 @@ public class MainActivity extends Activity implements OnTouchListener {
 			phil[i] = new Philosopher(this, i);
 		
 		actionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, actions);		
-		actionList = (ListView) findViewById(R.id.actionList);
-		actionList.setAdapter(actionAdapter);
+		//actionList = (ListView) findViewById(R.id.actionList);
+		//actionList.setAdapter(actionAdapter);
+		
+		ImageView colorImage = (ImageView) findViewById(R.id.imageView2);
+		colorImage.setOnTouchListener(this);
+		System.out.println(colorImage);
 	}
 
 	@Override
@@ -43,11 +47,13 @@ public class MainActivity extends Activity implements OnTouchListener {
 
 	@Override
 	public boolean onTouch(View view, MotionEvent event) {
-		float x = event.getX();
-		float y = event.getY();
+		int x = (int) event.getX();
+		int y = (int) event.getY();
+		
+		System.out.println("Touch: " + Integer.toString(x) + "," + Integer.toString(y));
 		
 		if (event.getAction() == MotionEvent.ACTION_UP) {
-			int color = getColor(R.id.imageView1, x, y);
+			int color = getColor(R.id.imageView2, x, y);
 			
 			if (colorMatch(Color.RED, color)) {
 				phil[0].nextState();
@@ -87,12 +93,12 @@ public class MainActivity extends Activity implements OnTouchListener {
 		return true;
 	}
 
-	private int getColor(int imageId, float x, float y) {
+	private int getColor(int imageId, int x, int y) {
 		ImageView image = (ImageView) findViewById(imageId);
 		image.setDrawingCacheEnabled(true);
 		Bitmap hotspots = Bitmap.createBitmap(image.getDrawingCache()); 
 		image.setDrawingCacheEnabled(false);
-		return hotspots.getPixel((int) x, (int) y);
+		return hotspots.getPixel(x, y);
 	}
 	
 	public void update(Philosopher phil) {
@@ -104,7 +110,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		nextImage.setVisibility(0);	
 		
 		actions.add(phil.names[phil.number] + " is " + phil.states[phil.state].toLowerCase());		
-		actionList.refreshDrawableState();
+		//actionList.refreshDrawableState();
 	}
 
 }
