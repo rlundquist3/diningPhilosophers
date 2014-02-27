@@ -1,6 +1,7 @@
 package com.example.diningphilosophers;
 
 import java.util.ArrayList;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.view.View.OnTouchListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnTouchListener {
 
@@ -26,16 +28,22 @@ public class MainActivity extends Activity implements OnTouchListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		for (int i=0; i<5; i++)
+		for (int i=0; i<5; i++) {
 			phil[i] = new Philosopher(this, i);
+			update(phil[i]);
+			
+			/*String philTextId = Philosopher.names[phil[i].number].toLowerCase() + "Text";
+			TextView philText = (TextView) findViewById(getResources().getIdentifier(philTextId, "id", getPackageName()));
+			philText.setText("Thinking");*/
+		}
 		
 		actionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, actions);		
 		//actionList = (ListView) findViewById(R.id.actionList);
 		//actionList.setAdapter(actionAdapter);
 		
-		ImageView colorImage = (ImageView) findViewById(R.id.imageView2);
+		ImageView colorImage = (ImageView) findViewById(R.id.colorImage);
 		colorImage.setOnTouchListener(this);
-		System.out.println(colorImage);
+		
 	}
 
 	@Override
@@ -53,7 +61,9 @@ public class MainActivity extends Activity implements OnTouchListener {
 		System.out.println("Touch: " + Integer.toString(x) + "," + Integer.toString(y));
 		
 		if (event.getAction() == MotionEvent.ACTION_UP) {
-			int color = getColor(R.id.imageView2, x, y);
+			System.out.println("Action: " + Integer.toString(event.getAction()));
+			int color = getColor(R.id.colorImage, x, y);
+			System.out.println("Color: " + Integer.toString(color));
 			
 			if (colorMatch(Color.RED, color)) {
 				phil[0].nextState();
@@ -102,14 +112,24 @@ public class MainActivity extends Activity implements OnTouchListener {
 	}
 	
 	public void update(Philosopher phil) {
-		String lastId = phil.names[phil.number] + phil.states[phil.lastState];
+		/*String lastId = phil.names[phil.number] + phil.states[phil.lastState];
 		String nextId = phil.names[phil.number] + phil.states[phil.state];
 		ImageView lastImage = (ImageView) findViewById(getResources().getIdentifier(lastId, "id", getPackageName()));
 		ImageView nextImage = (ImageView) findViewById(getResources().getIdentifier(nextId, "id", getPackageName()));
 		lastImage.setVisibility(1);
-		nextImage.setVisibility(0);	
+		nextImage.setVisibility(0);*/
 		
-		actions.add(phil.names[phil.number] + " is " + phil.states[phil.state].toLowerCase());		
+		String philTextId = Philosopher.names[phil.number].toLowerCase() + "Text";
+		TextView philText = (TextView) findViewById(getResources().getIdentifier(philTextId, "id", getPackageName()));
+		philText.setText(" " + Philosopher.states[phil.state]);
+		if (phil.state == phil.THINKING)
+			philText.setTextColor(Color.BLUE);
+		else if (phil.state == phil.WAITING)
+			philText.setTextColor(Color.RED);
+		else
+			philText.setTextColor(Color.GREEN);
+		
+		actions.add(Philosopher.names[phil.number] + " is " + Philosopher.states[phil.state].toLowerCase());		
 		//actionList.refreshDrawableState();
 	}
 

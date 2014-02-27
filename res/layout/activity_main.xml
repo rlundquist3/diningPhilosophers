@@ -11,19 +11,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <!--ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/dining_philosophers" /-->
+        android:layout_height="300dp" >
         
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/colorImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -32,7 +23,7 @@
             android:src="@drawable/dining_philosophers_back" />
         
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/philosopherImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -40,6 +31,267 @@
             android:scaleType="fitCenter"
             android:src="@drawable/dining_philosophers" />
 
+        <!--ImageView
+            android:id="@+id/aristotleThinking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/aristotle_thinking" />
+        
+        <ImageView
+            android:id="@+id/aristotleWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/aristotle_waiting" />
+        
+        <ImageView
+            android:id="@+id/aristotleEating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/aristotle_eating" />
+        
+        <ImageView
+            android:id="@+id/maxThinking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/max_thinking" />
+        
+        <ImageView
+            android:id="@+id/maxWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/max_waiting" />
+        
+        <ImageView
+            android:id="@+id/maxEating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/max_eating" />
+        
+        <ImageView
+            android:id="@+id/confuciusThinking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/confucius_thinking" />
+        
+        <ImageView
+            android:id="@+id/confuciusWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/confucius_waiting" />
+        
+        <ImageView
+            android:id="@+id/confuciusEating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/confucius_eating" />
+        
+        <ImageView
+            android:id="@+id/chrisThinking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/chris_thinking" />
+        
+        <ImageView
+            android:id="@+id/chrisWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/chris_waiting" />
+        
+        <ImageView
+            android:id="@+id/chrisEating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/chris_eating" />
+        
+        <ImageView
+            android:id="@+id/platoThinking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/plato_thinking" />
+        
+        <ImageView
+            android:id="@+id/platoWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/plato_waiting" />
+        
+        <ImageView
+            android:id="@+id/platoEating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:src="@drawable/plato_eating" /-->
+
     </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView 
+                android:id="@+id/aristotleName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp"
+                android:gravity="right"
+                android:text="@string/aristotle" />
+            
+            <TextView 
+                android:id="@+id/aristotleText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp" />
+           
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView 
+                android:id="@+id/maxName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp"
+                android:gravity="right"
+                android:text="@string/max" />
+            
+            <TextView 
+                android:id="@+id/maxText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp" />
+            
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView 
+                android:id="@+id/confuciusName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp"
+                android:gravity="right"
+                android:text="@string/confucius" />
+            
+            <TextView 
+                android:id="@+id/confuciusText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp" />
+            
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView 
+                android:id="@+id/chrisName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp"
+                android:gravity="right"
+                android:text="@string/chris" />
+                        
+            <TextView 
+                android:id="@+id/chrisText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp" />
+            
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView 
+                android:id="@+id/platoName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp"
+                android:gravity="right"
+                android:text="@string/plato" />
+            
+            <TextView 
+                android:id="@+id/platoText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30sp" />
+            
+        </TableRow>
+        
+    </TableLayout>
 
 </LinearLayout>

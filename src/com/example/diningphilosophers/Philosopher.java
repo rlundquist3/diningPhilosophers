@@ -6,10 +6,10 @@ public class Philosopher {
 	
 	MainActivity parent;
 	int number, state, lastState;
-	static boolean available[] = new boolean[5];
+	static boolean available[] = {true, true, true, true, true};
 	int times[];
-	String[] states = new String[] {"Thinking", "Waiting", "Eating"};
-	String[] names = new String[] {"aristotle", "max", "confucius", "chris", "plato"};
+	static String[] states = new String[] {"Thinking", "Waiting", "Eating"};
+	static String[] names = new String[] {"Aristotle", "Max", "Confucius", "Chris", "Plato"};
 	
 	public Philosopher (MainActivity mainActivity, int num) {
 		parent = mainActivity;
@@ -19,6 +19,11 @@ public class Philosopher {
 	}
 
 	public void nextState() {
+		System.out.print("Availability: ");
+		for (int i=0; i<5; i++)
+			System.out.print(available[i] + " ");
+		System.out.println();
+		
 		lastState = state;
 		if (state == THINKING || state == WAITING) {
 			if (available[number] && available[(number+1)%5]) {

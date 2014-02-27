@@ -4,5 +4,11 @@
     <string name="app_name">DiningPhilosophers</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string name="aristotle">Aristotle: </string>
+    <string name="max">Max Cherem: </string>
+    <string name="confucius">Confucius: </string>
+    <string name="chris">Chris Latiolais: </string>
+    <string name="plato">Plato: </string>
 
 </resources>
