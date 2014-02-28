@@ -1,5 +1,7 @@
 package com.example.diningphilosophers;
 
+import java.util.ArrayList;
+
 public class Philosopher {
 	
 	final int THINKING = 0, WAITING = 1, EATING = 2;
@@ -10,6 +12,7 @@ public class Philosopher {
 	int times[];
 	static String[] states = new String[] {"Thinking", "Waiting", "Eating"};
 	static String[] names = new String[] {"Aristotle", "Max", "Confucius", "Chris", "Plato"};
+	static ArrayList<String> actions = new ArrayList<String>();
 	
 	public Philosopher (MainActivity mainActivity, int num) {
 		parent = mainActivity;
@@ -39,6 +42,8 @@ public class Philosopher {
 		}
 		
 		parent.update(this);
+		for (int i=0; i<5; i++)
+			parent.phil[i].incrementTime();
 	}
 	
 	public void incrementTime() {

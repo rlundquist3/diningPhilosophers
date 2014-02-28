@@ -1,49 +1,45 @@
 package com.example.diningphilosophers;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnTouchListener {
 
 	final int TOLERANCE = 25;
-	Philosopher phil[] = new Philosopher[5];
-	ArrayList<String> actions = new ArrayList<String>();
-	ArrayAdapter<String> actionAdapter;
-	ListView actionList;
+	static Philosopher phil[] = new Philosopher[5];
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		for (int i=0; i<5; i++) {
+		for (int i=0; i<5; i++)
 			phil[i] = new Philosopher(this, i);
-			update(phil[i]);
 			
-			/*String philTextId = Philosopher.names[phil[i].number].toLowerCase() + "Text";
-			TextView philText = (TextView) findViewById(getResources().getIdentifier(philTextId, "id", getPackageName()));
-			philText.setText("Thinking");*/
-		}
-		
-		actionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, actions);		
-		//actionList = (ListView) findViewById(R.id.actionList);
-		//actionList.setAdapter(actionAdapter);
+		initialSetup();
 		
 		ImageView colorImage = (ImageView) findViewById(R.id.colorImage);
 		colorImage.setOnTouchListener(this);
-		
+	}
+	
+	public void initialSetup() {
+		for (int i=0; i<5; i++) {
+			phil[i] = new Philosopher(this, i);
+			update(phil[i]);
+		}
+		Philosopher.available = new boolean[] {true, true, true, true, true};
+		Philosopher.actions.clear();
 	}
 
 	@Override
@@ -51,6 +47,22 @@ public class MainActivity extends Activity implements OnTouchListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()) {
+		case R.id.action_refresh:
+			initialSetup();
+			Toast.makeText(getApplicationContext(), "Data Cleared", Toast.LENGTH_LONG).show();
+			return true;
+		case R.id.action_status:
+			Intent intent = new Intent(MainActivity.this, StatusActivity.class);
+			startActivity(intent);
+			return true;
+		default:
+            return super.onOptionsItemSelected(item);
+		}
 	}
 
 	@Override
@@ -87,8 +99,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 			}
 		}
 		
-		for (int i=0; i<5; i++) 
-			phil[i].incrementTime();
+		
 		
 		return true;
 	}
@@ -111,26 +122,21 @@ public class MainActivity extends Activity implements OnTouchListener {
 		return hotspots.getPixel(x, y);
 	}
 	
-	public void update(Philosopher phil) {
-		/*String lastId = phil.names[phil.number] + phil.states[phil.lastState];
-		String nextId = phil.names[phil.number] + phil.states[phil.state];
-		ImageView lastImage = (ImageView) findViewById(getResources().getIdentifier(lastId, "id", getPackageName()));
-		ImageView nextImage = (ImageView) findViewById(getResources().getIdentifier(nextId, "id", getPackageName()));
-		lastImage.setVisibility(1);
-		nextImage.setVisibility(0);*/
-		
-		String philTextId = Philosopher.names[phil.number].toLowerCase() + "Text";
+	public void update(Philosopher philosopher) {		
+		String philTextId = Philosopher.names[philosopher.number].toLowerCase() + "Text";
 		TextView philText = (TextView) findViewById(getResources().getIdentifier(philTextId, "id", getPackageName()));
-		philText.setText(" " + Philosopher.states[phil.state]);
-		if (phil.state == phil.THINKING)
+		philText.setText(" " + Philosopher.states[philosopher.state]);
+		if (philosopher.state == philosopher.THINKING)
 			philText.setTextColor(Color.BLUE);
-		else if (phil.state == phil.WAITING)
+		else if (philosopher.state == philosopher.WAITING)
 			philText.setTextColor(Color.RED);
 		else
 			philText.setTextColor(Color.GREEN);
 		
-		actions.add(Philosopher.names[phil.number] + " is " + Philosopher.states[phil.state].toLowerCase());		
-		//actionList.refreshDrawableState();
+		Philosopher.actions.add(Philosopher.names[philosopher.number] + " is " + Philosopher.states[philosopher.state].toLowerCase());
+		
+		//for (int i=0; i<5; i++) 
+			//phil[i].incrementTime();
 	}
 
 }
