@@ -1,3 +1,20 @@
+/*
+ * Riley Lundquist
+ * Operating Systems & Networking
+ * February 2014
+ * 
+ * Dining Philosophers Android App
+ * 
+ * This application demonstrates the solution to the Dining Philosophers
+ * Problem in which a philosopher may only pick up his chopsticks if both
+ * are available.
+ * 
+ * The MainActivity class provides the main interface. It displays 5 
+ * philosophers about a table. The user can click on a philosopher to 
+ * indicate that he would like to eat. It also displays the statuses of
+ * each.
+ */
+
 package com.example.diningphilosophers;
 
 import android.app.Activity;
@@ -24,6 +41,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//Initializes the 5 philosophers
 		for (int i=0; i<5; i++)
 			phil[i] = new Philosopher(this, i);
 			
@@ -33,6 +51,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		colorImage.setOnTouchListener(this);
 	}
 	
+	//Method to setup all philosophers as thinking. Called at initialization and to restart
 	public void initialSetup() {
 		for (int i=0; i<5; i++) {
 			phil[i] = new Philosopher(this, i);
@@ -65,6 +84,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		}
 	}
 
+	//Identifies the clicked philosopher
 	@Override
 	public boolean onTouch(View view, MotionEvent event) {
 		int x = (int) event.getX();
@@ -78,32 +98,31 @@ public class MainActivity extends Activity implements OnTouchListener {
 			System.out.println("Color: " + Integer.toString(color));
 			
 			if (colorMatch(Color.RED, color)) {
-				phil[0].nextState();
+				phil[0].nextState(true);
 				System.out.println("Aristotle touched");
 			}
 			else if (colorMatch(Color.YELLOW, color)) {
-				phil[1].nextState();
+				phil[1].nextState(true);
 				System.out.println("Max touched");
 			}
 			else if (colorMatch(Color.GREEN, color)) {
-				phil[2].nextState();
+				phil[2].nextState(true);
 				System.out.println("Confucius touched");
 			}
 			else if (colorMatch(Color.BLUE, color)) {
-				phil[3].nextState();
+				phil[3].nextState(true);
 				System.out.println("Chris touched");
 			}
 			else if (colorMatch(Color.MAGENTA, color)) {
-				phil[4].nextState();
+				phil[4].nextState(true);
 				System.out.println("Plato touched");
 			}
 		}
 		
-		
-		
 		return true;
 	}
 
+	//Checks clicked color (for identifying philosopher)
 	private boolean colorMatch(int color1, int color2) {
 		if (Math.abs(Color.red(color1) - Color.red(color2)) > TOLERANCE)
 			return false;
@@ -114,6 +133,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		return true;
 	}
 
+	//Gets color at touched point
 	private int getColor(int imageId, int x, int y) {
 		ImageView image = (ImageView) findViewById(imageId);
 		image.setDrawingCacheEnabled(true);
@@ -122,6 +142,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		return hotspots.getPixel(x, y);
 	}
 	
+	//Updates the status of the philosopher and adds state to list of actions
 	public void update(Philosopher philosopher) {		
 		String philTextId = Philosopher.names[philosopher.number].toLowerCase() + "Text";
 		TextView philText = (TextView) findViewById(getResources().getIdentifier(philTextId, "id", getPackageName()));
@@ -133,10 +154,7 @@ public class MainActivity extends Activity implements OnTouchListener {
 		else
 			philText.setTextColor(Color.GREEN);
 		
-		Philosopher.actions.add(Philosopher.names[philosopher.number] + " is " + Philosopher.states[philosopher.state].toLowerCase());
-		
-		//for (int i=0; i<5; i++) 
-			//phil[i].incrementTime();
+		Philosopher.actions.add(0, Philosopher.names[philosopher.number] + " is " + Philosopher.states[philosopher.state].toLowerCase());
 	}
 
 }

@@ -1,3 +1,9 @@
+/*
+ * The Philosopher class contains state information about philosophers.
+ * It also contains static availability flags for the chopsticks (for 
+ * determining when a philosopher can or cannot eat).
+ */
+
 package com.example.diningphilosophers;
 
 import java.util.ArrayList;
@@ -21,7 +27,8 @@ public class Philosopher {
 		times = new int[] {0, 0, 0};
 	}
 
-	public void nextState() {
+	//Facilitates the transition between states
+	public void nextState(boolean increment) {
 		System.out.print("Availability: ");
 		for (int i=0; i<5; i++)
 			System.out.print(available[i] + " ");
@@ -39,13 +46,22 @@ public class Philosopher {
 			available[number] = true;
 			available[(number+1)%5] = true;
 			state = THINKING;
+			
+			//Checks if neighbors can move from waiting
+			if (MainActivity.phil[(number-1)%5].state == WAITING)
+				MainActivity.phil[(number-1)%5].nextState(false);
+			if (MainActivity.phil[(number+1)%5].state == WAITING)
+				MainActivity.phil[(number+1)%5].nextState(false);
 		}
 		
 		parent.update(this);
-		for (int i=0; i<5; i++)
-			parent.phil[i].incrementTime();
+		
+		if (increment)
+			for (int i=0; i<5; i++)
+				MainActivity.phil[i].incrementTime();
 	}
 	
+	//Increments the time (number of turns) spent at the current state
 	public void incrementTime() {
 		times[state]++;
 	}

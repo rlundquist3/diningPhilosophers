@@ -1,3 +1,9 @@
+/*
+ * The StatusActivity class displays a list of all the actions 
+ * performed. It also shows a table of the total times (number of 
+ * turns) each philosopher has spent in each state.
+ */
+
 package com.example.diningphilosophers;
 
 import java.util.ArrayList;
@@ -21,6 +27,7 @@ public class StatusActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_status);
 		
+		//Sets up list of actions
 		actionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Philosopher.actions);		
 		actionList = (ListView) findViewById(R.id.actionList);
 		actionList.setAdapter(actionAdapter);
@@ -29,6 +36,7 @@ public class StatusActivity extends Activity {
 		setupTimes();
 	}
 	
+	//Sets up table of times
 	private void setupTimes() {
 		for (int i=0; i<5; i++)
 			for (int j=0; j<3; j++) {

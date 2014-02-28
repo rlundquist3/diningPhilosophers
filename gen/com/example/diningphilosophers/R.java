@@ -45,9 +45,9 @@ public final class R {
     }
     public static final class id {
         public static final int actionList=0x7f080011;
-        public static final int action_refresh=0x7f080029;
+        public static final int action_refresh=0x7f08002a;
         public static final int action_settings=0x7f080028;
-        public static final int action_status=0x7f08002a;
+        public static final int action_status=0x7f080029;
         public static final int aristotleEating=0x7f080017;
         public static final int aristotleName=0x7f080003;
         public static final int aristotleText=0x7f080004;
